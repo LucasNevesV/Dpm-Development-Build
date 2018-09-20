@@ -1,0 +1,26 @@
+.mensagemP{
+    background-color: #F1F1F1;
+    
+}
+.mensagemR{
+    background-color: #3558A6;
+    color: white;
+}
+
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  p{
+      margin-bottom: 0;
+  }
+
+.time{
+    font-size: 90%;
+    color: rgb(177, 152, 152);
+}
