@@ -25,7 +25,7 @@ export class DataService {
   //names:string[] = new String[3];
   total = [];
   aTotal = 0;
-  lTotal = 0;
+  Rtotal = [0,0,0,0,0,0];
   sac: number = 0;
   sacD: number = 0;
   nav;
@@ -92,20 +92,28 @@ export class DataService {
   }
 
   setData(data) {
-
     this.total.push(data.data[0].values.pop().value);
-
     this.total.push((data.data[0].values.pop().value - data.data[0].values[0].value));
     data.data[1].values.forEach(element => {
       this.aTotal = element.value + this.aTotal;
     });
     //console.log(this.aTotal);
     this.total.push(this.aTotal);
-    data.data[4].values.forEach(element => {
+   /* data.data[5].values.forEach(element => {
       this.lTotal = element.value + this.lTotal;
     });
-    this.total.push(this.lTotal);
+    this.total.push(this.lTotal);*/
     console.log(this.total);
+  }
 
+  setReactions(data){ 
+    var index = 0;
+    data.data.forEach(element => {      
+      element.values.forEach(element => {
+        this.Rtotal[index] = element.value + this.Rtotal[index];
+      });
+      index++;
+    });
+    console.log(this.Rtotal);
   }
 }

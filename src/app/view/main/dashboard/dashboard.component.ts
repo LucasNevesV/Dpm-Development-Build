@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   public sac:any;
   public sacD:any;
   public cliente:any;
+  public Rtotal = [];
 
   constructor(private dataService: DataService) { }
 
@@ -35,7 +36,7 @@ export class DashboardComponent implements OnInit {
     this.sac = this.dataService.sac;
     this.sacD = this.dataService.sacD;
     this.cliente = this.dataService.getUser();
-    
+    this.Rtotal = this.dataService.Rtotal;
   }
 
   ngOnInit(){
