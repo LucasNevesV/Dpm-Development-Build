@@ -64,11 +64,6 @@
     <div class="col-sm my-3 p-3 bg-white rounded shadow-sm boxesR">
         <div class="row">
             <h5 class="col-8">SAC</h5>
-            <a class="btn btn-default col p-0" data-toggle="collapse" data-target="#demo">
-                <h5>
-                    <i class="fas fa-info-circle col p-0"></i>
-                </h5>
-            </a>
             <a class="btn btn-default col p-0 mr-2" routerLink="/sac">
                 <h5 class="m-0">
                     <mat-icon matBadge="6" matBadgeOverlap="false">edit</mat-icon>
@@ -283,13 +278,25 @@
         <div class="col-md">
             <h5 class="col-9 pt-3">Likes</h5>
             <hr>
-            <ul>
-                <li><i class="fas fa-thumbs-up fa-2x"></i>: {{Rtotal[0]}}</li>
-                <li>Love: {{Rtotal[1]}}</li>
-                <li>WoW: {{Rtotal[2]}}</li>
-                <li>HaHa: {{Rtotal[3]}}</li>
-                <li>Sad: {{Rtotal[4]}}</li>
-                <li>Anger: {{Rtotal[5]}}</li>
+            <ul class="list-inline row mx-auto mt-3">
+                <li class="list-inline-item col mr-2"><i class="far fa-thumbs-up fa-2x mr-2"></i>
+                     : {{Rtotal[0]}}
+                    </li>
+                <li class="list-inline-item col"><i class="far fa-heart fa-2x mr-2"></i>
+                     : {{Rtotal[1]}}
+                    </li>
+                <li class="list-inline-item col"><i class="far fa-surprise fa-2x mr-2"></i>
+                      : {{Rtotal[2]}}
+                    </li>
+                <li class="list-inline-item col"><i class="far fa-grin-squint-tears fa-2x mr-2"></i>
+                     : {{Rtotal[3]}}
+                    </li>
+                <li class="list-inline-item col"><i class="far fa-sad-tear fa-2x mr-2"></i>
+                     : {{Rtotal[4]}}
+                    </li>
+                <li class="list-inline-item col"><i class="far fa-angry fa-2x mr-2"></i>
+                     :  {{Rtotal[5]}}
+                    </li>
             </ul>
         </div>
     </div>
