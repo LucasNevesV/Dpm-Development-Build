@@ -4,6 +4,7 @@ import 'rxjs/Rx';
 import { pages } from '../Models/pages.model';
 import { Subject } from 'rxjs';
 import { data } from '../Models/data.model';
+import { post } from '../Models/post.model';
 //import { data } from './data.model';
 
 
@@ -19,6 +20,8 @@ export class DataService {
   reqReturn;
   private arraydata: any;
   private pages: pages[] = [];
+  private posts: post[] = [];
+  private postsV: post[] = [];
   private data: data[] = [];
   private in: number[] = [];
   private pages2: any = [];
@@ -115,5 +118,43 @@ export class DataService {
       index++;
     });
     console.log(this.Rtotal);
+  }
+
+  setPosts(data){
+    console.log(data);
+    data.data.forEach(element => {
+      if(element.type === 'photo'){
+        this.posts.push(new post(element.created_time, element.message, element.link, element.insights.data[0].values[0].value, element.full_picture));
+      }else{
+        this.postsV.push(new post(element.created_time, element.message, element.link, element.insights.data[0].values[0].value, element.full_picture));
+      }
+      //this.posts.push(new post(element.created_time, element.message, element.link, element.insights.data[0].values[0].value));
+    });
+    this.posts.sort((a,b):number => {
+      if(a.Alcance < b.Alcance) return 1;
+      if(a.Alcance > b.Alcance) return -1;
+      return 0;
+    });
+    this.postsV.sort((a,b):number => {
+      if(a.Alcance < b.Alcance) return 1;
+      if(a.Alcance > b.Alcance) return -1;
+      return 0;
+    });
+    var index = 1;
+    this.posts.forEach(element => {
+      element.setId(index);
+      index++;
+    });
+    index = 1;
+    this.postsV.forEach(element => {
+      element.setId(index);
+      index++;
+    });
+  }
+  getPosts(){
+    return this.posts;
+  }
+  getPostsV(){
+    return this.postsV;
   }
 }

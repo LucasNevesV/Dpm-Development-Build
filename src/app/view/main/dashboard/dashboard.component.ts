@@ -1,13 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { pages } from '../../../Models/pages.model';
 import { DataService } from '../../../Data/data.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {MatSort, MatTableDataSource} from '@angular/material';
+import { post } from '../../../Models/post.model';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class DashboardComponent implements OnInit {
+  
+  //MatTable
+  dataSource;
+  dataSourceV;
+  columnsToDisplay = ['Id','Date', 'Alcance'];
+
+  @ViewChild(MatSort) sort: MatSort;  
 
   fansF;
   public fansI: any;
@@ -37,6 +54,10 @@ export class DashboardComponent implements OnInit {
     this.sacD = this.dataService.sacD;
     this.cliente = this.dataService.getUser();
     this.Rtotal = this.dataService.Rtotal;
+    this.dataSource = this.dataService.getPosts();
+    this.dataSourceV = this.dataService.getPostsV();
+    this.dataSource.sort = this.sort;
+    this.dataSourceV.sort = this.sort;
   }
 
   ngOnInit(){
@@ -61,3 +82,8 @@ export class DashboardComponent implements OnInit {
    }
  
 }
+
+
+/*
+/ MatTable 
+*/

@@ -61,10 +61,20 @@ export class DataStorageService {
             .subscribe((data) => {
                 this.dataservice.setSac(data);
             });
+        this.http.get(this.rootUrl + "me" + this.atoken).map((data) => data.json())
+            .subscribe((data) => {
+                this.dataservice.setUser(data.name);
+            });
 
         this.http.get(this.rootUrl + "insights/page_impressions_unique/day?since=2018-09-01" + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 this.dataservice.setNav(data);
+            });
+
+        this.http.get(this.rootUrl + "posts?fields=name,message,link,type,full_picture,created_time,insights.metric(post_impressions_unique)&since=2018-07-01&until=2018-08-01" + this.atoken).map((data) => data.json())
+            .subscribe((data) => {
+                console.log(data);
+                this.dataservice.setPosts(data);
             });
 
     }

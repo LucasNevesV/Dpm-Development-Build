@@ -31,7 +31,6 @@ export class SignupComponent implements OnInit {
         console.log(socialPlatform+" sign in data : " , userData);
         var aToken = userData.token;
         this.dataStorage.atoken = "?access_token=" + userData.token;
-        this.dataService.setUser(userData.name);
         this.dataStorage.getRecipes();
         this.router.navigate(['Home']);
         // Now sign-in with userData

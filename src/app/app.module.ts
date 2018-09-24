@@ -50,6 +50,7 @@ export function getAuthServiceConfigs() {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTableModule,
     MatBadgeModule,
     MatIconModule,
     HttpModule,

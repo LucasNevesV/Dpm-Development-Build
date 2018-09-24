@@ -52,5 +52,8 @@ export class FiltersComponent implements OnInit {
     // console.log(event.target.value); ==> Token
     this.dataStorage.atoken = "&access_token=" + event.target.value;    
     this.dataStorage.getData();
+    console.log(event.target);
+    
+    //this.dataService.setUser(event.target);
   }
 }
