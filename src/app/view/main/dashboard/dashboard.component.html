@@ -80,7 +80,7 @@
         </h4>
     </div>
 </div>
-<div id="seguidoresI" class="collapse bg-white rounded shadow-sm">
+<div id="seguidoresI" class="collapse bg-white rounded shadow-sm mb-2">
 
     <div class="row">
         <h5 class="col-9 ml-3 pt-3">Dados</h5>
@@ -150,15 +150,15 @@
     </div>
 
 </div>
-<div id="alcanceI" class="collapse bg-white rounded shadow-sm mb-5">
+<div id="alcanceI" class="collapse bg-white rounded shadow-sm mb-2">
 
     <div class="row">
-        <div class="col-md">
+        <div class="col-xl">
             <h5 class="col-9 pt-3">Posts (Vídeo)</h5>
             <hr>
             <table mat-table [dataSource]="dataSourceV" multiTemplateDataRows class="">
                 <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-                    <th mat-header-cell *matHeaderCellDef> <strong> {{column}}</strong> </th>
+                    <th mat-header-cell *matHeaderCellDef > <strong> {{column}}</strong> </th>
                     <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
                 </ng-container>
 
@@ -166,11 +166,19 @@
                 <ng-container matColumnDef="expandedDetail">
                     <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
                         <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-                            <div class="example-element-description row">
-                                <img src="{{element.picture}}" alt="" class="img-fluid col-4">
-                                <p class="col">{{element.description}}</p>
-
-                                <a target="_blank" rel="noopener noreferrer" class="text-primary mt-3" href="{{element.link}}">{{element.link}}</a>
+                            <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                <div class="example-element-description row">
+                                    <div class="col-4">
+                                        <img src="{{element.picture}}" alt="" class="rounded img-fluid">
+                                    </div>
+                                    <div class="col">
+                                        <p class="text-justify">{{element.description}}</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <a target="_blank" rel="noopener noreferrer" class="btn btn-outline-info my-2 my-sm-0"
+                                            href="{{element.link}}" role="button">Link</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </td>
@@ -183,7 +191,7 @@
                 <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
             </table>
         </div>
-        <div class="col-md">
+        <div class="col-xl">
             <h5 class="col-9 pt-3">Posts (Estatístico)</h5>
             <hr>
             <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="">
@@ -197,10 +205,16 @@
                     <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
                         <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
                             <div class="example-element-description row">
-                                <img src="{{element.picture}}" alt="" class="img-fluid col-4">
-                                <p class="col">{{element.description}}</p>
-
-                                <a target="_blank" rel="noopener noreferrer" class="text-primary mt-3" href="{{element.link}}">{{element.link}}</a>
+                                <div class="col-4">
+                                    <img src="{{element.picture}}" alt="" class="rounded img-fluid">
+                                </div>
+                                <div class="col">
+                                    <p class="text-justify">{{element.description}}</p>
+                                </div>
+                                <div class="col-2">
+                                    <a target="_blank" rel="noopener noreferrer" class="btn btn-outline-info my-2 my-sm-0"
+                                        href="{{element.link}}" role="button">Link</a>
+                                </div>
                             </div>
                         </div>
                     </td>
@@ -218,7 +232,7 @@
 
     </div>
 </div>
-<div id="likesI" class="collapse bg-white rounded shadow-sm mb-5">
+<div id="likesI" class="collapse bg-white rounded shadow-sm mb-2">
 
     <div class="row">
 
@@ -226,21 +240,27 @@
             <h5 class="col-9 pt-3">Likes</h5>
             <hr>
             <ul class="list-inline row mx-auto mt-3">
+
                 <li class="list-inline-item col mr-2"><i class="far fa-thumbs-up fa-2x mr-2"></i>
                     <h4> : {{Rtotal[0]}}</h4>
                 </li>
+
                 <li class="list-inline-item col"><i class="far fa-heart fa-2x mr-2"></i>
                     <h4> : {{Rtotal[1]}} </h4>
                 </li>
+
                 <li class="list-inline-item col"><i class="far fa-surprise fa-2x mr-2"></i>
                     <h4> : {{Rtotal[2]}} </h4>
                 </li>
+
                 <li class="list-inline-item col"><i class="far fa-grin-squint-tears fa-2x mr-2"></i>
                     <h4> : {{Rtotal[3]}} </h4>
                 </li>
+
                 <li class="list-inline-item col"><i class="far fa-sad-tear fa-2x mr-2"></i>
                     <h4> : {{Rtotal[4]}} </h4>
                 </li>
+
                 <li class="list-inline-item col"><i class="far fa-angry fa-2x mr-2"></i>
                     <h4> : {{Rtotal[5]}} </h4>
                 </li>

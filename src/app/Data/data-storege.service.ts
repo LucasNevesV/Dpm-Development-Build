@@ -32,29 +32,26 @@ export class DataStorageService {
                 }
             );
     }
-    
+
     getData() {
 
         /*
         /   ?fields=type tipo de POST
         */
-
         this.http.get(this.rootUrl + "insights/page_fans,page_impressions_unique?since=2018-07-01&until=2018-08-01" + this.atoken).map((data) => data.json())
-            .subscribe((data) => {       
+            .subscribe((data) => {
                 console.log(data);
-                 
+
                 this.dataservice.setData(data);
-                //this.dashboardComponent.testee();
             });
         this.http.get(this.rootUrl + "insights/page_actions_post_reactions_like_total,page_actions_post_reactions_love_total,page_actions_post_reactions_wow_total,page_actions_post_reactions_haha_total,page_actions_post_reactions_sorry_total,page_actions_post_reactions_anger_total/day?since=2018-07-01&until=2018-08-01?since=2018-07-01&until=2018-08-01" + this.atoken).map((data) => data.json())
-            .subscribe((data) => {       
-               this.dataservice.setReactions(data);
+            .subscribe((data) => {
+                this.dataservice.setReactions(data);
             });
 
         this.http.get(this.rootUrl + "insights/page_fans_gender_age,page_fans_city?until=2018-08-01" + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 console.log(data.data[1].values[0].value);
-                //this.citys = data.data[1].values[0].value;
             });
 
         this.http.get(this.rootUrl + "conversations?limit=100" + this.atoken).map((data) => data.json())

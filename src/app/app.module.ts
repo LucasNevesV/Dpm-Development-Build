@@ -13,13 +13,12 @@ import { NavTopComponent } from './view/hud/nav-top/nav-top.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './view/main/dashboard/dashboard.component';
 import { DataStorageService } from './Data/data-storege.service';
+import { FiltersComponent } from './view/main/filters/filters.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatTableModule, MatPaginatorModule, MatSortModule, MatBadgeModule, MatIconModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule, MatBadgeModule, MatIconModule, MatFormFieldModule, MatDatepickerModule,MatNativeDateModule,MatInputModule } from '@angular/material';
 import { DataService } from './Data/data.service';
 import { HttpModule } from '@angular/http';
-import { FiltersComponent } from './view/main/filters/filters.component';
 import { SacComponent } from './view/main/sac/sac.component';
-
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -53,12 +52,17 @@ export function getAuthServiceConfigs() {
     MatTableModule,
     MatBadgeModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
     HttpModule,
     ChartsModule
   ],
   providers: [
     DataStorageService,
     DataService,
+    MatNativeDateModule,
     DashboardComponent,
     {
       provide: AuthServiceConfig,

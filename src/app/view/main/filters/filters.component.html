@@ -1,49 +1,72 @@
 <div class="row">
-  <div class="col-sm-2 formasL mt-2">
-      <div class="input-group mb-1">
-          <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Cliente</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01" (change)="selectChangeHandler($event)">
-              <option selected>Choose...</option>
-              <option value="0">Todos</option>
-              <option *ngFor="let pag of names" [value]="pag.token">{{pag.name}}</option>
-          </select>
-      </div>
-  </div>
-  <div class="col-sm-2 formasL mt-2">
-      <div class="input-group mb-1">
-          <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Plataforma</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect02">
-              <option selected>Choose...</option>
-              <option selected>Facebook</option>
-              <!-- <option value="0">Facebook</option>
+    <div class="col-sm-2 formasL mt-2">
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Cliente</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" (change)="selectChangeHandler($event)">
+                <option selected>Choose...</option>
+                <option value="0">Todos</option>
+                <option *ngFor="let pag of names" [value]="pag.token">{{pag.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-2 formasL mt-2">
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Plataforma</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect02">
+                <option selected>Choose...</option>
+                <option selected>Facebook</option>
+                <!-- <option value="0">Facebook</option>
               <option value="1">Instagram</option>
               <option value="2">Youtube</option> -->
-          </select>
-      </div>
-  </div>
+            </select>
+        </div>
+    </div>
 
-  <div class="col-sm-3 formasL mt-2">
-      <div class="input-group mb-1">
-          <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">
-                  <i class="fa fa-calendar-alt"></i>
-              </label>
-          </div>
-          <input class="form-control" id="inputGroupSelect02" type="text" name="daterange" value="01-01-2018 || 01-15-2018" />
-      </div>
-  </div>
-  <div class="col-sm-3 formasL mt-2">
-      <div class="input-group mb-1">
-          <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">
-                  <i class="fa fa-calendar-alt"></i>
-              </label>
-          </div>
-          <input class="form-control" id="inputGroupSelect02" type="text" name="daterange" value="01-01-2018 || 01-15-2018" />
-      </div>
-  </div>
+    <div class="col-sm-1 formasL mt-2">
+
+        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateI">Date range</button>
+
+    </div>
+    <div id="dateI" class="col-sm-2 formasL mt-2 collapse bg-white rounded shadow-sm ">
+
+            <mat-form-field class="ml-3">
+                <input matInput [matDatepicker]="picker" placeholder="De">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="ml-3">
+                <input matInput [matDatepicker]="picker4" placeholder="Até">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+    <div class="col-sm-1 formasL mt-2">
+
+        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateR">Date range</button>
+
+    
+    </div>
+    <div id="dateR" class="col-sm-2 formasL mt-2 collapse bg-white rounded shadow-sm ">
+
+            <mat-form-field class="ml-3">
+                <input matInput [matDatepicker]="picker1" placeholder="De">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="ml-3">
+                <input matInput [matDatepicker]="picker2" placeholder="Até">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+
+
 </div>

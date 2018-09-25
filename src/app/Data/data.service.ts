@@ -93,20 +93,14 @@ export class DataService {
     });
     this.sacD = this.sac - this.sacD;
   }
-
+  
   setData(data) {
     this.total.push(data.data[0].values.pop().value);
     this.total.push((data.data[0].values.pop().value - data.data[0].values[0].value));
     data.data[1].values.forEach(element => {
       this.aTotal = element.value + this.aTotal;
     });
-    //console.log(this.aTotal);
     this.total.push(this.aTotal);
-   /* data.data[5].values.forEach(element => {
-      this.lTotal = element.value + this.lTotal;
-    });
-    this.total.push(this.lTotal);*/
-    console.log(this.total);
   }
 
   setReactions(data){ 
@@ -117,11 +111,9 @@ export class DataService {
       });
       index++;
     });
-    console.log(this.Rtotal);
   }
 
   setPosts(data){
-    console.log(data);
     data.data.forEach(element => {
       if(element.type === 'photo'){
         this.posts.push(new post(element.created_time, element.message, element.link, element.insights.data[0].values[0].value, element.full_picture));
