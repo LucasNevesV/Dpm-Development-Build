@@ -25,10 +25,9 @@ export class DataService {
   private data: data[] = [];
   private in: number[] = [];
   private pages2: any = [];
-  //names:string[] = new String[3];
   total = [];
   aTotal = 0;
-  Rtotal = [0,0,0,0,0,0];
+  Rtotal = [0, 0, 0, 0, 0, 0];
   sac: number = 0;
   sacD: number = 0;
   nav;
@@ -41,15 +40,12 @@ export class DataService {
     this.http.get(this.rootUrl + "accounts" + this.atoken).map((data) => data.json())
       .subscribe((data) => {
         this.arraydata = data.data;
-        //console.log(data);
         var index = 0;
         this.arraydata.forEach(arraydata => {
           this.pages.push(new pages(index, arraydata.name, arraydata.access_token));
         });
-        //console.log(this.pages);
         return this.arraydata;
       });
-    //console.log(this.pages);
   }
 
   setPages(paginas: pages[]) {
@@ -58,8 +54,6 @@ export class DataService {
       this.pages.push(new pages(index, page.name, page.access_token));
     });
     this.paginas = paginas;
-    //this.total++;
-    //this.pagesChanged.next(this.paginas.slice());
   }
 
 
@@ -70,6 +64,7 @@ export class DataService {
   setUser(name: string) {
     this.userName = name;
   }
+
   getUser() {
     return this.userName;
   }
@@ -93,7 +88,7 @@ export class DataService {
     });
     this.sacD = this.sac - this.sacD;
   }
-  
+
   setData(data) {
     this.total.push(data.data[0].values.pop().value);
     this.total.push((data.data[0].values.pop().value - data.data[0].values[0].value));
@@ -103,9 +98,9 @@ export class DataService {
     this.total.push(this.aTotal);
   }
 
-  setReactions(data){ 
+  setReactions(data) {
     var index = 0;
-    data.data.forEach(element => {      
+    data.data.forEach(element => {
       element.values.forEach(element => {
         this.Rtotal[index] = element.value + this.Rtotal[index];
       });
@@ -113,23 +108,22 @@ export class DataService {
     });
   }
 
-  setPosts(data){
+  setPosts(data) {
     data.data.forEach(element => {
-      if(element.type === 'photo'){
+      if (element.type === 'photo') {
         this.posts.push(new post(element.created_time, element.message, element.link, element.insights.data[0].values[0].value, element.full_picture));
-      }else{
+      } else {
         this.postsV.push(new post(element.created_time, element.message, element.link, element.insights.data[0].values[0].value, element.full_picture));
       }
-      //this.posts.push(new post(element.created_time, element.message, element.link, element.insights.data[0].values[0].value));
     });
-    this.posts.sort((a,b):number => {
-      if(a.Alcance < b.Alcance) return 1;
-      if(a.Alcance > b.Alcance) return -1;
+    this.posts.sort((a, b): number => {
+      if (a.Alcance < b.Alcance) return 1;
+      if (a.Alcance > b.Alcance) return -1;
       return 0;
     });
-    this.postsV.sort((a,b):number => {
-      if(a.Alcance < b.Alcance) return 1;
-      if(a.Alcance > b.Alcance) return -1;
+    this.postsV.sort((a, b): number => {
+      if (a.Alcance < b.Alcance) return 1;
+      if (a.Alcance > b.Alcance) return -1;
       return 0;
     });
     var index = 1;
@@ -143,10 +137,12 @@ export class DataService {
       index++;
     });
   }
-  getPosts(){
+
+  getPosts() {
     return this.posts;
   }
-  getPostsV(){
+
+  getPostsV() {
     return this.postsV;
   }
 }

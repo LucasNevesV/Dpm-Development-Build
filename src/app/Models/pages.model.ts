@@ -11,8 +11,7 @@ export class pages {
     public likesI: number; 
     public sac: number;
     access_token: any;//Teste para sumir erro 
-    data;
-
+    
     constructor(id: number, name: string, token: string) {
         this.id = id;
         this.name = name;

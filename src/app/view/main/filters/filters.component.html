@@ -26,44 +26,44 @@
         </div>
     </div>
 
-    <div class="col-sm-1 formasL mt-2">
+    <div class="col-sm-2 formasL mt-2">
 
-        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateI">Date range</button>
+        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateI">Range Principal</button>
 
     </div>
     <div id="dateI" class="col-sm-2 formasL mt-2 collapse bg-white rounded shadow-sm ">
 
-            <mat-form-field class="ml-3">
+            <mat-form-field class="ml-1 mt-2">
                 <input matInput [matDatepicker]="picker" placeholder="De">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-            <mat-form-field class="ml-3">
+            <mat-form-field class="ml-1">
                 <input matInput [matDatepicker]="picker4" placeholder="Até">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                <mat-datepicker #picker4></mat-datepicker>
             </mat-form-field>
 
         </div>
-    <div class="col-sm-1 formasL mt-2">
+    <div class="col-sm-2 formasL mt-2">
 
-        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateR">Date range</button>
+        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateR">Range Comparação</button>
 
     
     </div>
     <div id="dateR" class="col-sm-2 formasL mt-2 collapse bg-white rounded shadow-sm ">
 
-            <mat-form-field class="ml-3">
+            <mat-form-field class="ml-1 mt-2">
                 <input matInput [matDatepicker]="picker1" placeholder="De">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
 
-            <mat-form-field class="ml-3">
+            <mat-form-field class="ml-1">
                 <input matInput [matDatepicker]="picker2" placeholder="Até">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
 
         </div>

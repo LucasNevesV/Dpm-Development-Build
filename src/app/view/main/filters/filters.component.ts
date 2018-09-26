@@ -35,6 +35,7 @@ export class FiltersComponent implements OnInit {
   toShow() {
     this.showAll = true;
   }
+  
   selectChangeHandler(event: any) {
     //update the ui
     // console.log(event.target.value); ==> Token
