@@ -14,20 +14,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './view/main/dashboard/dashboard.component';
 import { DataStorageService } from './Data/data-storege.service';
 import { FiltersComponent } from './view/main/filters/filters.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatTableModule, MatPaginatorModule, MatSortModule, MatBadgeModule, MatIconModule, MatFormFieldModule, MatDatepickerModule,MatNativeDateModule,MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule, MatPaginatorModule, MatSortModule, MatBadgeModule, MatIconModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
 import { DataService } from './Data/data.service';
 import { HttpModule } from '@angular/http';
 import { SacComponent } from './view/main/sac/sac.component';
+import { FormsModule } from '@angular/forms';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
-      [
-        {
-          id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider("258934994653626")
-        }
-      ]
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("258934994653626")
+      }
+    ]
   );
   return config;
 }
@@ -57,6 +58,7 @@ export function getAuthServiceConfigs() {
     MatNativeDateModule,
     MatInputModule,
     HttpModule,
+    FormsModule,
     ChartsModule
   ],
   providers: [

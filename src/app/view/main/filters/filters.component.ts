@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardComponent } from '../dashboard/dashboard.component';
 import { DataStorageService } from '../../../Data/data-storege.service';
 import { DataService } from '../../../Data/data.service';
 
@@ -11,21 +10,25 @@ import { DataService } from '../../../Data/data.service';
 })
 export class FiltersComponent implements OnInit {
 
-  constructor(private dataService: DataService, private dataStorage: DataStorageService, private dashboardComponent: DashboardComponent) { }
+  constructor(private dataService: DataService, private dataStorage: DataStorageService) { }
 
   names = [];
+  selectedDate1: Date;
+  selectedDate2;
+  selectedDate3;
+  selectedDate4;
+  token;
 
   ngOnInit() {
     this.getNames();
-
+    //this.selectedDate = new Date();
   }
   getRequest() {
-    this.dashboardComponent.testee();
   }
 
   getNames() {
     this.names = this.dataService.getNames();
-  
+
   }
 
   onCreate() {
@@ -36,13 +39,25 @@ export class FiltersComponent implements OnInit {
     this.showAll = true;
   }
   
-  selectChangeHandler(event: any) {
-    //update the ui
-    // console.log(event.target.value); ==> Token
-    this.dataStorage.atoken = "&access_token=" + event.target.value;    
-    this.dataStorage.getData();
-    console.log(event.target);
+  sendFilters(){
+
+    this.dataStorage.atoken = this.token;
+    console.log(this.selectedDate1);
+    console.log(this.selectedDate1.toISOString() + " DALE");
     
-    //this.dataService.setUser(event.target);
+    this.dataStorage.date.push(this.selectedDate1.toISOString());
+    this.dataStorage.date.push(this.selectedDate2.toISOString());
+    this.dataStorage.date.push(this.selectedDate3.toISOString());
+    this.dataStorage.date.push(this.selectedDate4.toISOString());
+    this.dataStorage.getData();
+
   }
+
+  selectChangeHandler(event: any) {
+  
+    this.token = "&access_token=" + event.target.value;
+    //this.dataStorage.getData();
+
+  }
+
 }

@@ -6,13 +6,15 @@ export class post {
     description: string;
     Id:number;
     picture: string;
+    Likes:number;
 
-    constructor(date: string, description: string, link: string, alcance: number, picture: string) {
+    constructor(date: string, description: string, link: string, alcance: number, picture: string,likes: number) {
         this.Date = date;
         this.description = description;
         this.link = link;
         this.Alcance = alcance;
         this.picture = picture
+        this.Likes = likes;
     }
 
     setId(id:number){
