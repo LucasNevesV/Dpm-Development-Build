@@ -38,13 +38,10 @@ export class FiltersComponent implements OnInit {
   toShow() {
     this.showAll = true;
   }
-  
-  sendFilters(){
+
+  sendFilters() {
 
     this.dataStorage.atoken = this.token;
-    console.log(this.selectedDate1);
-    console.log(this.selectedDate1.toISOString() + " DALE");
-    
     this.dataStorage.date.push(this.selectedDate1.toISOString());
     this.dataStorage.date.push(this.selectedDate2.toISOString());
     this.dataStorage.date.push(this.selectedDate3.toISOString());
@@ -54,7 +51,7 @@ export class FiltersComponent implements OnInit {
   }
 
   selectChangeHandler(event: any) {
-  
+
     this.token = "&access_token=" + event.target.value;
     //this.dataStorage.getData();
 

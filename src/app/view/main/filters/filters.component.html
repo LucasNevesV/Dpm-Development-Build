@@ -28,8 +28,8 @@
 
     <div class="col-sm-2 formasL mt-2">
 
-        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateI">Range Principal</button>
-        
+        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateI">Período</button>
+
     </div>
     <div id="dateI" class="col-sm-2 formasL mt-2 collapse bg-white rounded shadow-sm ">
 
@@ -40,7 +40,7 @@
         </mat-form-field>
 
         <mat-form-field class="ml-1">
-            <input matInput  [matDatepicker]="picker4" placeholder="Até" [(ngModel)]="selectedDate2" readonly>
+            <input matInput [matDatepicker]="picker4" placeholder="Até" [(ngModel)]="selectedDate2" readonly>
             <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
             <mat-datepicker #picker4></mat-datepicker>
         </mat-form-field>
@@ -48,7 +48,7 @@
     </div>
     <div class="col-sm-2 formasL mt-2">
 
-        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateR">Range Comparação</button>
+        <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateR">Período Comparação</button>
 
 
     </div>

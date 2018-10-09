@@ -19,6 +19,7 @@ export class DataStorageService {
     teste;
     citys: string;
     date = [];
+    name: string;
 
     storeInfo() {
 
@@ -39,13 +40,9 @@ export class DataStorageService {
         /*
         /   ?fields=type tipo de POST
         */
-       console.log(this.date[0] + " sadasd");
-       
-
-        this.http.get(this.rootUrl + "insights/page_fans,page_impressions_unique?since=" + this.date[0] + "&until=" + this.date[1]+ this.atoken).map((data) => data.json())
+        this.http.get(this.rootUrl + "insights/page_fans,page_impressions_unique?since=" + this.date[0] + "&until=" + this.date[1] + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 console.log(data);
-
                 this.dataservice.setData(data);
             });
         this.http.get(this.rootUrl + "insights/page_actions_post_reactions_like_total,page_actions_post_reactions_love_total,page_actions_post_reactions_wow_total,page_actions_post_reactions_haha_total,page_actions_post_reactions_sorry_total,page_actions_post_reactions_anger_total/day?since=" + this.date[0] + "&until=" + this.date[1] + this.atoken).map((data) => data.json())
@@ -53,19 +50,19 @@ export class DataStorageService {
                 this.dataservice.setReactions(data);
             });
 
-        this.http.get(this.rootUrl + "insights/page_fans_gender_age,page_fans_city?until="+ this.date[1] + this.atoken).map((data) => data.json())
+        this.http.get(this.rootUrl + "insights/page_fans_gender_age,page_fans_city?until=" + this.date[1] + this.atoken).map((data) => data.json())
             .subscribe((data) => {
-                console.log(data.data[1].values[0].value);
+                console.log(data.data[1].values[0].value.toString());
             });
 
         this.http.get(this.rootUrl + "conversations?limit=100" + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 this.dataservice.setSac(data);
             });
-       /* this.http.get(this.rootUrl + "me" + this.atoken).map((data) => data.json())
-            .subscribe((data) => {
-                this.dataservice.setUser(data.name);
-            });*/
+        /* this.http.get(this.rootUrl + "me" + this.atoken).map((data) => data.json())
+             .subscribe((data) => {
+                 this.dataservice.setUser(data.name);
+             });*/
 
         this.http.get(this.rootUrl + "insights/page_impressions_unique/day?since=2018-09-01" + this.atoken).map((data) => data.json())
             .subscribe((data) => {

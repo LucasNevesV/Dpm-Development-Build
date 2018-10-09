@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   //MatTable
   dataSource;
   dataSourceV;
-  columnsToDisplay = ['Id', 'Date', 'Alcance','Likes'];
+  columnsToDisplay = ['Id', 'Date', 'Alcance', 'Likes'];
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit {
   }
 
   testee() {
-    
+
     this.fansF = this.dataService.total[0];
     this.fansI = this.dataService.total[1];
     this.alcanceF = this.dataService.total[2];

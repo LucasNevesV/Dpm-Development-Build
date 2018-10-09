@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class NavTopComponent implements OnInit {
 
   login = 'Login';
+  name: string;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getName(name){
+    this.name = name;
   }
 
 }
