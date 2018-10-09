@@ -66,6 +66,7 @@ export function getAuthServiceConfigs() {
     DataService,
     MatNativeDateModule,
     DashboardComponent,
+    NavTopComponent,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

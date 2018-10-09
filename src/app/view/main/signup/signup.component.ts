@@ -7,6 +7,7 @@ import {
 } from 'angular-6-social-login';
 import { DataService } from '../../../Data/data.service';
 import { DataStorageService } from '../../../Data/data-storege.service';
+import { NavTopComponent } from '../../hud/nav-top/nav-top.component';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ import { DataStorageService } from '../../../Data/data-storege.service';
 })
 export class SignupComponent implements OnInit {
   title = 'dpm-production-build';
-  constructor( private socialAuthService: AuthService,private router: Router,private dataService: DataService, private dataStorage: DataStorageService ) {}
+  constructor( private socialAuthService: AuthService,private router: Router,private dataService: DataService, private dataStorage: DataStorageService, private navTcomponnent: NavTopComponent ) {}
   
   public socialSignIn(socialPlatform : string) {
     let socialPlatformProvider;
@@ -31,6 +32,7 @@ export class SignupComponent implements OnInit {
         console.log(socialPlatform+" sign in data : " , userData);
         var aToken = userData.token;
         this.dataStorage.atoken = "?access_token=" + userData.token;
+        this.navTcomponnent.getName(userData.name);
         this.dataStorage.getRecipes();
         this.router.navigate(['Home']);
         // Now sign-in with userData

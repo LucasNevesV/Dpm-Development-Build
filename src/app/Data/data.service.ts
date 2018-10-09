@@ -57,10 +57,10 @@ export class DataService {
     this.paginas = paginas;
   }
 
-  setDate(data){
+  setDate(data) {
     this.date = data;
   }
-  getDate(){
+  getDate() {
     return this.date;
   }
 
@@ -98,7 +98,7 @@ export class DataService {
 
   setData(data) {
     console.log(data);
-    
+
     this.total.push(data.data[0].values.pop().value);
     this.total.push((data.data[0].values.pop().value - data.data[0].values[0].value));
     data.data[1].values.forEach(element => {
@@ -120,9 +120,9 @@ export class DataService {
   setPosts(data) {
     data.data.forEach(element => {
       if (element.type === 'photo') {
-        this.posts.push(new post(element.created_time.substring(0,10), element.message, element.link, element.insights.data[0].values[0].value, element.full_picture,element.insights.data[1].values[0].value));
+        this.posts.push(new post(element.created_time.substring(0, 10), element.message, element.link, element.insights.data[0].values[0].value, element.full_picture, element.insights.data[1].values[0].value));
       } else {
-        this.postsV.push(new post(element.created_time.substring(0,10), element.message, element.link, element.insights.data[0].values[0].value, element.full_picture,element.insights.data[1].values[0].value));
+        this.postsV.push(new post(element.created_time.substring(0, 10), element.message, element.link, element.insights.data[0].values[0].value, element.full_picture, element.insights.data[1].values[0].value));
       }
     });
     this.posts.sort((a, b): number => {
