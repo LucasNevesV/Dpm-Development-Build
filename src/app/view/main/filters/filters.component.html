@@ -27,10 +27,26 @@
     </div>
 
     <div class="col-sm-2 formasL mt-2">
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Período</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" (change)="selectChangeHandler($event)">
+                <option selected>Choose...</option>
+                <option value="01-">Janeiro</option>
+                <option value="0">Fevereiro</option>
+                <option value="0">Outubro</option>
+            </select>
+        </div>
+    </div>
+    
+    <!--
+    <div class="col-sm-2 formasL mt-2">
 
         <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateI">Período</button>
 
     </div>
+    -->
     <div id="dateI" class="col-sm-2 formasL mt-2 collapse bg-white rounded shadow-sm ">
 
         <mat-form-field class="ml-1 mt-2">
@@ -47,11 +63,25 @@
 
     </div>
     <div class="col-sm-2 formasL mt-2">
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Comparar</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" (change)="selectChangeHandler($event)">
+                <option selected>Choose...</option>
+                <option value="01-">Janeiro</option>
+                <option value="0">Fevereiro</option>
+                <option value="0">Outubro</option>
+            </select>
+        </div>
+    </div>
+    <!-- 
+        <div class="col-sm-2 formasL mt-2">
 
         <button class="btn btn-secondary" data-toggle="collapse" data-target="#dateR">Período Comparação</button>
 
-
     </div>
+-->
     <div id="dateR" class="col-sm-2 formasL mt-2 collapse bg-white rounded shadow-sm ">
 
         <mat-form-field class="ml-1 mt-2">
