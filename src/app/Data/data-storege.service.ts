@@ -20,6 +20,8 @@ export class DataStorageService {
     citys: string;
     date = [];
     name: string;
+    checks: boolean;
+    done = 0;
 
     storeInfo() {
 
@@ -40,17 +42,19 @@ export class DataStorageService {
         /*
         /   ?fields=type tipo de POST
         */
-        this.http.get(this.rootUrl + "insights/page_fans,page_impressions_unique?since=" + this.date[0] + "&until=" + this.date[1] + this.atoken).map((data) => data.json())
+        this.http.get(this.rootUrl + "insights/page_fans,page_impressions_unique?" + this.date[0] + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 console.log(data);
                 this.dataservice.setData(data);
+                this.setAll();
             });
-        this.http.get(this.rootUrl + "insights/page_actions_post_reactions_like_total,page_actions_post_reactions_love_total,page_actions_post_reactions_wow_total,page_actions_post_reactions_haha_total,page_actions_post_reactions_sorry_total,page_actions_post_reactions_anger_total/day?since=" + this.date[0] + "&until=" + this.date[1] + this.atoken).map((data) => data.json())
+        this.http.get(this.rootUrl + "insights/page_actions_post_reactions_like_total,page_actions_post_reactions_love_total,page_actions_post_reactions_wow_total,page_actions_post_reactions_haha_total,page_actions_post_reactions_sorry_total,page_actions_post_reactions_anger_total/day?" + this.date[0] + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 this.dataservice.setReactions(data);
+                this.setAll();
             });
 
-        this.http.get(this.rootUrl + "insights/page_fans_gender_age,page_fans_city?until=" + this.date[1] + this.atoken).map((data) => data.json())
+        this.http.get(this.rootUrl + "insights/page_fans_gender_age,page_fans_city?" + this.date[0] + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 console.log(data.data[1].values[0].value.toString());
             });
@@ -58,6 +62,7 @@ export class DataStorageService {
         this.http.get(this.rootUrl + "conversations?limit=100" + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 this.dataservice.setSac(data);
+                this.setAll();
             });
         /* this.http.get(this.rootUrl + "me" + this.atoken).map((data) => data.json())
              .subscribe((data) => {
@@ -67,13 +72,25 @@ export class DataStorageService {
         this.http.get(this.rootUrl + "insights/page_impressions_unique/day?since=2018-09-01" + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 //this.dataservice.setNav(data);
+                
             });
 
-        this.http.get(this.rootUrl + "posts?fields=name,message,link,type,full_picture,created_time,insights.metric(post_impressions_unique,post_reactions_like_total)&since=" + this.date[0] + "&until=" + this.date[1] + this.atoken).map((data) => data.json())
+        this.http.get(this.rootUrl + "posts?fields=name,message,link,type,full_picture,created_time,insights.metric(post_impressions_unique,post_reactions_like_total)&" + this.date[0] + this.atoken).map((data) => data.json())
             .subscribe((data) => {
                 console.log(data);
                 this.dataservice.setPosts(data);
+                this.setAll();
             });
+
+    }
+
+    setAll() {
+        this.done++;
+
+        if (this.dataservice.count >= 4) {
+            this.dashboardComponent.testee();
+
+        }
 
     }
 }

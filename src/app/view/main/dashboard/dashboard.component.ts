@@ -62,6 +62,12 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  vai(){
+    this.alcanceF = this.dataService.total[2];
+    console.log(this.alcanceF);
+    
+  }
+
   ngOnInit() {
   }
 

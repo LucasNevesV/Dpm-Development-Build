@@ -31,9 +31,11 @@
             <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">Período</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01" (change)="date1ChangeHandler($event)">
+            <select class="custom-select" id="inputGroupSelect01" (change)="selectChangeHandler($event)">
                 <option selected>Choose...</option>
-                <option *ngFor="let pag of dates" [value]="pag.value">{{pag.viewValue}}</option>
+                <option value="01-">Janeiro</option>
+                <option value="0">Fevereiro</option>
+                <option value="0">Outubro</option>
             </select>
         </div>
     </div>
@@ -65,9 +67,11 @@
             <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">Comparar</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01" (change)="date2ChangeHandler($event)">
+            <select class="custom-select" id="inputGroupSelect01" (change)="selectChangeHandler($event)">
                 <option selected>Choose...</option>
-                <option *ngFor="let pag of dates" [value]="pag.value">{{pag.viewValue}}</option>
+                <option value="01-">Janeiro</option>
+                <option value="0">Fevereiro</option>
+                <option value="0">Outubro</option>
             </select>
         </div>
     </div>

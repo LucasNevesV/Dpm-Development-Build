@@ -32,6 +32,7 @@ export class DataService {
   sacD: number = 0;
   nav;
   date;
+  count = 0;
 
   readonly rootUrl =
     "https://graph.facebook.com/v3.1/me/";
@@ -94,6 +95,7 @@ export class DataService {
       }
     });
     this.sacD = this.sac - this.sacD;
+    this.count++;
   }
 
   setData(data) {
@@ -105,6 +107,7 @@ export class DataService {
       this.aTotal = element.value + this.aTotal;
     });
     this.total.push(this.aTotal);
+    this.count++;
   }
 
   setReactions(data) {
@@ -115,6 +118,7 @@ export class DataService {
       });
       index++;
     });
+    this.count++;
   }
 
   setPosts(data) {
@@ -145,6 +149,7 @@ export class DataService {
       element.setId(index);
       index++;
     });
+    this.count++;
   }
 
   getPosts() {

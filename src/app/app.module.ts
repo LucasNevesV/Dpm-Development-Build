@@ -15,7 +15,7 @@ import { DashboardComponent } from './view/main/dashboard/dashboard.component';
 import { DataStorageService } from './Data/data-storege.service';
 import { FiltersComponent } from './view/main/filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule, MatPaginatorModule, MatSortModule, MatBadgeModule, MatIconModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule, MatBadgeModule, MatIconModule, MatFormFieldModule,MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
 import { DataService } from './Data/data.service';
 import { HttpModule } from '@angular/http';
 import { SacComponent } from './view/main/sac/sac.component';
@@ -55,6 +55,7 @@ export function getAuthServiceConfigs() {
     MatIconModule,
     MatFormFieldModule,
     MatDatepickerModule,
+    MatSelectModule,
     MatNativeDateModule,
     MatInputModule,
     HttpModule,
